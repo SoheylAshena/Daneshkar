@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soheyl Ashena | Register</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <section class="image-section"></section>
+      <section class="form-section">
+        <div class="form-centre">
+          <h2>Register</h2>
+          <form id="registerForm" novalidate>
+            <div class="input-container">
+              <label for="registerUsername">Full name</label>
+              <input
+                id="registerUsername"
+                type="text"
+                placeholder="Full name"
+              />
+              <span class="error-message">Name is empty.</span>
+            </div>
+            <div class="input-container">
+              <label for="registerEmail">Email address</label>
+              <input id="registerEmail" type="email" placeholder="Email" />
+              <span class="error-message">Email is not valid.</span>
+            </div>
+            <div class="input-container">
+              <label for="registerPassword">Set password</label>
+              <input
+                id="registerPassword"
+                type="password"
+                placeholder="Password"
+              />
+              <span class="error-message">Password is empty.</span>
+            </div>
+            <div class="input-container">
+              <label for="confirmPassword">Confirm password</label>
+              <input
+                id="confirmPassword"
+                type="password"
+                placeholder="Confirm password"
+              />
+              <span class="error-message">Passwords do not match.</span>
+            </div>
+            <button type="submit">Register</button>
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
