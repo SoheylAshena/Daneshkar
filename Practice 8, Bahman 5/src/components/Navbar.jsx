@@ -11,32 +11,47 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-500 text-white p-4">
-      <div className="container mx-auto flex justify-between">
-        <Link to="/" className="font-bold text-lg">
+    <nav className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link
+          to="/"
+          className="font-extrabold text-2xl hover:text-purple-200 transition duration-300"
+        >
           Book App
         </Link>
-        <div>
+        <div className="flex items-center space-x-6">
           {!token ? (
             <>
-              <Link to="/register" className="mr-4">
+              <Link
+                to="/register"
+                className="text-lg hover:text-purple-200 transition duration-300"
+              >
                 Register
               </Link>
-              <Link to="/login" className="mr-4">
+              <Link
+                to="/login"
+                className="text-lg hover:text-purple-200 transition duration-300"
+              >
                 Login
               </Link>
             </>
           ) : (
             <>
-              <Link to="/" className="mr-4">
+              <Link
+                to="/"
+                className="text-lg hover:text-purple-200 transition duration-300"
+              >
                 Books
               </Link>
-              <Link to="/create" className="mr-4">
+              <Link
+                to="/create"
+                className="text-lg hover:text-purple-200 transition duration-300"
+              >
                 Add Book
               </Link>
               <button
                 onClick={handleLogout}
-                className="bg-red-500 px-4 py-2 rounded"
+                className="bg-red-500 text-white px-5 py-2 rounded-full hover:bg-red-600 transition duration-300"
               >
                 Logout
               </button>

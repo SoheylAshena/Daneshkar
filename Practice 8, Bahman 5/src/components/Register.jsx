@@ -1,9 +1,11 @@
 import { useState } from "react";
 import axios from "../api/axios";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,38 +15,45 @@ const Register = () => {
         password,
       });
       alert("Registered successfully!");
-      console.log(response.data); // Debugging purposes
+      localStorage.setItem("token", response.data.token);
+      navigate("/");
     } catch (error) {
       console.error(error);
-      alert("Error registering user. Please try again.");
+      alert(error.response.data.message);
     }
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white p-6 rounded shadow">
-      <h1 className="text-xl font-bold mb-4">Register</h1>
+    <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">
+      <h1 className="text-3xl font-extrabold mb-6 text-center text-gray-800">
+        Register
+      </h1>
       <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-gray-700">Username</label>
+        <div className="mb-6">
+          <label className="block text-gray-700 text-lg font-semibold mb-2">
+            Username
+          </label>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
             required
           />
         </div>
-        <div className="mb-4">
-          <label className="block text-gray-700">Password</label>
+        <div className="mb-6">
+          <label className="block text-gray-700 text-lg font-semibold mb-2">
+            Password
+          </label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
             required
           />
         </div>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded">
+        <button className="w-full bg-green-600 text-white text-lg py-3 rounded-lg hover:bg-green-700 transition duration-300">
           Register
         </button>
       </form>

@@ -1,36 +1,12 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "../api/axios";
+import React, { useState } from "react";
 
-const CreateBook = () => {
+const UpdateBook = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [publicationYear, setPublicationYear] = useState("");
   const [isbn, setIsbn] = useState("");
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post("/api/books", {
-        title,
-        author,
-        publicationYear: parseInt(publicationYear),
-        isbn,
-      });
-      alert("Book created successfully!");
-      navigate("/");
-    } catch (error) {
-      console.error(error);
-      alert("Failed to create book.");
-    }
-  };
-
   return (
-    <div className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">
-      <h1 className="text-3xl font-extrabold mb-6 text-center text-gray-800">
-        Add New Book
-      </h1>
+    <div className="bg-white p-6 rounded shadow">
       <form onSubmit={handleSubmit}>
         <div className="mb-6">
           <label className="block text-gray-700 text-lg font-semibold mb-2">
@@ -88,4 +64,4 @@ const CreateBook = () => {
   );
 };
 
-export default CreateBook;
+export default UpdateBook;

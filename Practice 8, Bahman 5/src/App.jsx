@@ -11,6 +11,7 @@ import BookList from "./components/BookList";
 import BookDetails from "./components/BookDetails";
 import CreateBook from "./components/CreateBook";
 import Navbar from "./components/Navbar";
+import UpdateBook from "./components/UpdateBook";
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
@@ -50,6 +51,14 @@ const App = () => {
               element={
                 <ProtectedRoute>
                   <CreateBook />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/update/:id"
+              element={
+                <ProtectedRoute>
+                  <UpdateBook />
                 </ProtectedRoute>
               }
             />
